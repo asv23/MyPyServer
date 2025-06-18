@@ -1,0 +1,44 @@
+# Папки и файлы окружения
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# Файлы зависимостей (можно заменить на requirements.txt)
+*.egg-info/
+*.egg
+build/
+dist/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Кэш и временные файлы
+.pytest_cache/
+.mypy_cache/
+.cache/
+*.swp
+*.bak
+*.tmp
+
+# Конфиденциальные данные
+.env
+*.env
+secrets.py
+config_private.py
+
+# IDE/Редакторы
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Логи и дампы
+*.log
+*.sqlite3
+*.dump
