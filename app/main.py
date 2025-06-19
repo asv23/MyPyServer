@@ -22,11 +22,6 @@ def get_phrase():
 def read_hello():
     return json.loads(DATA_FILE.read_text())
 
-# @app.post("/update")
-# def update_message(new_msg: str):
-#     DATA_FILE.write_text(json.dumps({"message": new_msg}))
-#     return {"status": "updated"}
-
 @app.post("/update")
 async def update_message(new_msg: str = Body(..., embed=True)):
     DATA_FILE.write_text(json.dumps({"message": new_msg}))
