@@ -10,9 +10,9 @@ DATA_FILE = Path("data.json")
 if not DATA_FILE.exists():
     DATA_FILE.write_text('{"message": "Hello World, Py!"}')
 
-app.middleware("http")(middleware_middleware) # Вот тут проблема с порядком
-app.middleware("http")(py_middleware) # Вот тут проблема с порядком
-app.middleware("http")(hello_middleware)
+# app.middleware("http")(middleware_middleware) # Вот тут проблема с порядком
+# app.middleware("http")(py_middleware) # Вот тут проблема с порядком
+# app.middleware("http")(hello_middleware)
 
 @app.get("/")
 def get_phrase():
@@ -26,7 +26,3 @@ def read_hello():
 async def update_message(new_msg: str = Body(..., embed=True)):
     DATA_FILE.write_text(json.dumps({"message": new_msg}))
     return {"status": "updated", "message": new_msg}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
