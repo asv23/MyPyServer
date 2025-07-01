@@ -7,8 +7,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf 
 
 COPY . .
 
+ARG APP_PORT=8000
+ENV APP_PORT=$APP_PORT
 ENV PYTHONPATH=/app
 
-EXPOSE 8000
+EXPOSE $APP_PORT
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port $APP_PORT"]
+# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
