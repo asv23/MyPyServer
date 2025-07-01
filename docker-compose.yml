@@ -1,0 +1,8 @@
+services:
+  fastapi_server:
+    build: .
+    container_name: fastapi_container
+    ports:
+      - "${APP_PORT:-8000}:${APP_PORT:-8000}"
+    environment:
+      - APP_PORT=${APP_PORT:-8000}

@@ -10,9 +10,9 @@ DATA_FILE = Path("data.json")
 if not DATA_FILE.exists():
     DATA_FILE.write_text('{"message": "Hello World, Py!"}')
 
-# app.middleware("http")(middleware_middleware) # Вот тут проблема с порядком
-# app.middleware("http")(py_middleware) # Вот тут проблема с порядком
-# app.middleware("http")(hello_middleware)
+app.middleware("http")(middleware_middleware) # Вот тут проблема с порядком
+app.middleware("http")(py_middleware) # Вот тут проблема с порядком
+app.middleware("http")(hello_middleware)
 
 @app.get("/")
 def get_phrase():
